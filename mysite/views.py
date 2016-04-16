@@ -3,6 +3,7 @@ from django.template import Context
 from django.template.loader import get_template
 from django.shortcuts import render
 import datetime
+import MySQLdb
 
 def hello(request):
     return HttpResponse("Hello world!")
