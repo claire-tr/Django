@@ -14,14 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import patterns, include, url
-from mysite.views import hello, current_datetime, hours_ahead
-from article.views import get_article
+from django.contrib import admin
 
-urlpatterns = patterns('',
+
+urlpatterns = patterns('mysite.views',
                        # url(r'^$', my_homepage_view),
-                       url(r'^hello/$', hello),
-                       url(r'^time/$', current_datetime),
-                       url(r'^another-time-page/$', current_datetime),
-                       url(r'^time/plus/(\d{1,2})/$', hours_ahead),
-                       url(r'^article', get_article),
+                       url(r'^hello/$', 'hello'),
+                       url(r'^time/$', 'current_datetime'),
+                       url(r'^another-time-page/$', 'current_datetime'),
+                       url(r'^time/plus/(\d{1,2})/$', 'hours_ahead'),
+
+)
+
+urlpatterns += patterns('',
+                        (r'^admin/', include(admin.site.urls)),
+                        )
+
+urlpatterns += patterns('article.views',
+                  url(r'^article', 'get_article'),
+
+
 )
