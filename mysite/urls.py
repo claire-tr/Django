@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from book import views
 
 
 urlpatterns = patterns('mysite.views',
@@ -32,6 +33,11 @@ urlpatterns += patterns('',
 
 urlpatterns += patterns('article.views',
                   url(r'^article', 'get_article'),
-
-
 )
+
+urlpatterns += ('',
+    # ...
+    (r'^search-form/$', views.search_form),
+    # ...
+)
+

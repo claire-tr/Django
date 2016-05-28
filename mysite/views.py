@@ -5,6 +5,7 @@ from django.shortcuts import render
 import datetime
 import MySQLdb
 
+
 def hello(request):
     return HttpResponse("Hello world!")
 
@@ -35,3 +36,6 @@ def display_meta(request):
     for k, v in values:
         html.append('<tr><td>%s</td><td>%s</td></tr>' % (k, v))
     return HttpResponse('<table>%s</table>' % '\n'.join(html))
+
+
+
