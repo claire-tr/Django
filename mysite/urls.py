@@ -37,7 +37,7 @@ urlpatterns += patterns('article.views',
 
 urlpatterns += ('',
     # ...
-    (r'^search-form/$', views.search_form),
+    (r'^search/$', views.search),
     # ...
 )
 
